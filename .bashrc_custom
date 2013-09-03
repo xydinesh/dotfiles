@@ -1,1 +1,18 @@
+export PGUSER=user_dinesh
+export PGDATABASE=vzw_streamshare
+export PGPASSWORD=LinkNumber1
+export NZ_HOST=10.10.40.50
+export NZ_USER=user_dinesh
+export NZ_PASSWORD=LinkNumber1
+export NZ_DATABASE=vzw_streamshare
+export NZ_HOME='/usr/local/nz'
+export NEO4J_HOME='/home/dweerapurage/tmp/neo4j-advanced-1.8.2'
+export M2_HOME='/home/dweerapurage/tmp/apache-maven-3.0.5'
+export TERM='xterm-256color'
+export PATH=/usr/local/heroku/bin:/home/dweerapurage/pack/sbt/bin:$NZ_HOME/bin/:$M2_HOME/bin:$NEO4J_HOME/bin:$PATH
+
+export GRAPHCHI_ROOT='/home/dweerapurage/devs/graphchi-cpp'
+export JAVA_HOME='/opt/jdk1.7.0_25'
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 

@@ -2,3 +2,4 @@
 *.elc
 venv/
 *.pyc
+node_modules/

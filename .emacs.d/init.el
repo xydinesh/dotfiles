@@ -5,6 +5,9 @@
 ;; -- Global Settings --
 ;; ---------------------
 (add-to-list 'load-path "~/.emacs.d")
+(let ((default-directory "~/.emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 (require 'cl)
 (require 'ido)
 (require 'ffap)
@@ -66,12 +69,68 @@
 (global-set-key "\M-h" 'backward-delete-word)
 (global-set-key "\M-u" 'zap-to-char)
 
+;;kbd macro
+(global-set-key "\M-g" 'goto-line)
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\M-?" 'help-command)
+(global-set-key "\C-?" 'help-command)
+(global-set-key "\C-h" 'delete-backward-char)
+(global-set-key "\C-xt" 'transpose-line)
+(global-set-key "\C-ci" 'insert-kbd-macro)
+(global-set-key "\C-cp" 'show-paren-mode)
+(global-set-key "\C-h" 'delete-backward-char)
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
+(global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-c\C-k" 'kill-region)
+
+(global-set-key  [f2] 'server-edit)
+(global-set-key  [f3]  'call-last-kbd-macro)
+(global-set-key  [f4]  'ds)
+
+(global-set-key  [f5]  'enlarge-window)
+(global-set-key  [f6]  'shrink-window)
+(global-set-key  [f7]  'enlarge-window-horizontally)
+(global-set-key  [f8]  'shrink-window-horizontally)
+
+(global-set-key  [f9]  'compile)
+(global-set-key  [f10]  'other-window)
+(global-set-key  [f12]  'pep8)
+
+
+(defun line-to-top ()
+  "current line to top of the window"
+  (interactive)
+  (recenter 0))
+
+(defun scroll-one-line-up ()
+  "scrolling one line up "
+  (interactive)
+  (scroll-up 1))
+
+(defun scroll-one-line-down ()
+  "scrolling one line up "
+  (interactive)
+  (scroll-down 1))
+
+(global-set-key "\C-x\C-u" 'line-to-top)
+(global-set-key "\M-j" 'scroll-one-line-up)
+(global-set-key "\M-u" 'scroll-one-line-down)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+
 ;; ---------------------------
 ;; -- JS Mode configuration --
 ;; ---------------------------
 (load "js-config.el")
 (add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
 (require 'sws-mode)
-(require 'jade-mode)    
+(require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode)) 
+
+(require 'flymake-jshint)
+(add-hook 'javascript-mode-hook
+     (lambda () (flymake-mode t)))
+
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))

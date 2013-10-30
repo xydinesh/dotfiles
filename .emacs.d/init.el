@@ -138,7 +138,15 @@
 ;;;; nav ;;;;
 (require 'nav)
 (nav-disable-overeager-window-splitting)
+(require 'sr-speedbar)
 
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"            ;; personal snippets
+        "~/.emacs.d/yasnippet/snippets"    ;; the default collection
+        ))
 ;;;;;;;;;; Windows ;;;;;;;;;;;;;;;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -154,5 +162,5 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 78 :width normal)))))
 (add-to-list 'auto-mode-alist '("\\.cs$" . c++-mode))
+;;;;;;;;;;;;; Windows ;;;;;;;;;;;;;;;;;;;
 
-(require 'sr-speedbar)

@@ -154,3 +154,5 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 78 :width normal)))))
 (add-to-list 'auto-mode-alist '("\\.cs$" . c++-mode))
+
+(require 'sr-speedbar)

@@ -1,0 +1,16 @@
+*.elc
+*.o
+venv/
+node_modules/
+*.log
+*.py
+*.pyc
+*.pyo
+*.tar.gz
+*.zip
+*.tar.bz2
+*.gz
+.DS_Store
+*.sock
+*.csv
+

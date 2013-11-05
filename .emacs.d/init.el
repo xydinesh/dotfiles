@@ -135,6 +135,20 @@
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+;;; From this point onwards init.el contains Dinesh Weerapurage's changes
+;;; http://ergoemacs.org/emacs/emacs_make_modern.html
+;;; insert matching paranthesis and brackets works with emacs24
+;; (electric-pair-mode 1) 
+
+(show-paren-mode 1)
+(setq show-parent-style 'expression)
+;; highlight entire bracket expression
+(global-linum-mode 1)
+
+;; Don't create backup files
+(setq make-backup-files nil) ; stop creating those backup~ files
+(setq auto-save-default nil) ; stop creating those #autosave# files
+ 
 ;;;; nav ;;;;
 (require 'nav)
 (nav-disable-overeager-window-splitting)

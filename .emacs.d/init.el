@@ -95,7 +95,8 @@
 
 (global-set-key  [f9]  'compile)
 (global-set-key  [f10]  'other-window)
-(global-set-key  [f12]  'pep8)
+(global-set-key  [f11]  'pep8)
+(global-set-key  [f12]  'set-mark-command)
 
 
 (defun line-to-top ()

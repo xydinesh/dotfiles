@@ -9,10 +9,17 @@ export NZ_HOME='/usr/local/nz'
 export NEO4J_HOME='/home/dweerapurage/tmp/neo4j-advanced-1.8.2'
 export M2_HOME='/home/dweerapurage/tmp/apache-maven-3.0.5'
 export TERM='xterm-256color'
-export PATH=/usr/local/heroku/bin:/home/dweerapurage/pack/sbt/bin:$NZ_HOME/bin/:$M2_HOME/bin:$NEO4J_HOME/bin:$PATH
-
+export SBT_HOME='/home/dweerapurage/lib/sbt'
+export SCALA_HOME='/home/dweerapurage/lib/scala-2.9.3'
+export GRADLE_HOME='/home/dweerapurage/lib/gradle-1.9'
+export JAVA_HOME='/usr/java/latest'
 export GRAPHCHI_ROOT='/home/dweerapurage/devs/graphchi-cpp'
-export JAVA_HOME='/opt/jdk1.7.0_25'
+export ANT_HOME='/home/dweerapurage/lib/apache-ant-1.9.2'
+alias hdfs='hadoop dfs'
+alias hdfsls='hadoop dfs -ls'
+export SCALDING_HOME='/home/dweerapurage/lib/scalding'
+
+export PATH=$HOME/bin:$SBT_HOME/bin:$SCALA_HOME/bin:$GRADLE_HOME/bin:/usr/local/heroku/bin:$NZ_HOME/bin/:$M2_HOME/bin:$NEO4J_HOME/bin:$PATH:$ANT_HOME/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 

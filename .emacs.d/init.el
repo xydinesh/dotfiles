@@ -21,7 +21,7 @@
 (require 'compile)
 (ido-mode t)
 (menu-bar-mode -1)
-(normal-erase-is-backspace-mode 1)
+(normal-erase-is-backspace-mode 0)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (setq column-number-mode t)
@@ -48,8 +48,7 @@
  '(region ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(secondary-selection ((((class color) (min-colors 8)) (:background "gray" :foreground "cyan"))))
  '(show-paren-match ((((class color) (background light)) (:background "black"))))
- '(vertical-border ((t nil)))
-)
+ '(vertical-border ((t nil))))
 
 ;; ------------
 ;; -- Macros --
@@ -195,13 +194,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(speedbar-default-position (quote left))
+ '(speedbar-directory-button-trim-method (quote trim))
  '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 78 :width normal)))))
+
 (add-to-list 'auto-mode-alist '("\\.cs$" . c++-mode))
 ;;;;;;;;;;;;; Windows ;;;;;;;;;;;;;;;;;;;
 

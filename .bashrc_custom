@@ -1,7 +1,7 @@
 export PGUSER=user_dinesh
 export PGDATABASE=vzw_streamshare
 export PGPASSWORD=LinkNumber1
-export NZ_HOST=10.10.40.50
+export NZ_HOST=10.36.45.228
 export NZ_USER=user_dinesh
 export NZ_PASSWORD=LinkNumber1
 export NZ_DATABASE=vzw_streamshare
@@ -15,14 +15,19 @@ export GRADLE_HOME='/home/dweerapurage/lib/gradle-1.9'
 export JAVA_HOME='/usr/java/latest'
 export GRAPHCHI_ROOT='/home/dweerapurage/devs/graphchi-cpp'
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/odbc64v51/lib
+export ODBCINI=${HOME}/odbc.ini
+export NZ_ODBC_INI_PATH=${HOME}
+
 export ANT_HOME='/home/dweerapurage/lib/apache-ant-1.9.2'
 alias hdfs='hadoop dfs'
 alias hdfsls='hadoop dfs -ls'
 export SCALDING_HOME='/home/dweerapurage/lib/scalding'
-
-export PATH=$HOME/bin:$SBT_HOME/bin:$SCALA_HOME/bin:$GRADLE_HOME/bin:/usr/local/heroku/bin:$NZ_HOME/bin/:$M2_HOME/bin:$NEO4J_HOME/bin:$PATH:$ANT_HOME/bin
+export PYTHON27_HOME='/home/dweerapurage/python27'
+export PATH=$HOME/bin:$PYTHON27_HOME/bin:$SBT_HOME/bin:$SCALA_HOME/bin:$GRADLE_HOME/bin:/usr/local/heroku/bin:$NZ_HOME/bin/:$M2_HOME/bin:$NEO4J_HOME/bin:$PATH:$ANT_HOME/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export JAVA_HOME='/opt/java/jre1.7.0_45'
+export CLASSPATH=$CLASSPATH:'/usr/local/nz/lib/nzjdbc3.jar'
 PATH=$JAVA_HOME/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 

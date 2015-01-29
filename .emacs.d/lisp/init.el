@@ -121,19 +121,19 @@
 ;; ---------------------------
 ;; -- JS Mode configuration --
 ;; ---------------------------
-(load "js-config.el")
-(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
-(require 'sws-mode)
-(require 'jade-mode)
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode)) 
+;;(load "js-config.el")
+;;(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
+;;(require 'sws-mode)
+;;(require 'jade-mode)
+;;(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+;;(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode)) 
 
-(require 'flymake-jshint)
-(add-hook 'javascript-mode-hook
-     (lambda () (flymake-mode t)))
+;;(require 'flymake-jshint)
+;;(add-hook 'javascript-mode-hook
+;;     (lambda () (flymake-mode t)))
 
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;;(autoload 'js2-mode "js2-mode" nil t)
+;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;; From this point onwards init.el contains Dinesh Weerapurage's changes
 ;;; http://ergoemacs.org/emacs/emacs_make_modern.html
@@ -148,13 +148,13 @@
 ;; Don't create backup files
 (setq make-backup-files nil) ; stop creating those backup~ files
 (setq auto-save-default nil) ; stop creating those #autosave# files
- 
 ;;;; nav ;;;;
 (require 'nav)
 (nav-disable-overeager-window-splitting)
-(require 'sr-speedbar)
+;;(require 'sr-speedbar)
 
 ;; yasnippet
+(add-to-list 'load-path "~/.emacs.d/yasnippet/")
 (require 'yasnippet)
 (yas-global-mode 1)
 (setq yas-snippet-dirs
@@ -180,12 +180,12 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-(require 'scala-mode2)
-(require 'ensime)
+;;(require 'scala-mode2)
+;;(require 'ensime)
 ;; This step causes the ensime-mode to be started whenever
 ;; scala-mode is started for a buffer. You may have to customize this step
 ;; if you're not using the standard scala mode.
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;;(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;;;;;;;;;; Windows ;;;;;;;;;;;;;;;;
 (custom-set-variables
@@ -198,6 +198,6 @@
  '(speedbar-directory-button-trim-method (quote trim))
  '(tool-bar-mode nil))
 
-(add-to-list 'auto-mode-alist '("\\.cs$" . c++-mode))
+;;(add-to-list 'auto-mode-alist '("\\.cs$" . c++-mode))
 ;;;;;;;;;;;;; Windows ;;;;;;;;;;;;;;;;;;;
-
+(load-theme 'misterioso)

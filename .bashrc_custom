@@ -1,6 +1,4 @@
 export PGUSER=user_dinesh
-export PGDATABASE=vzw_streamshare
-export PGPASSWORD=LinkNumber1
 export NZ_HOST=10.36.45.228
 export NZ_USER=user_dinesh
 export NZ_PASSWORD=LinkNumber1
@@ -23,8 +21,7 @@ export ANT_HOME='/home/dweerapurage/lib/apache-ant-1.9.2'
 alias hdfs='hadoop dfs'
 alias hdfsls='hadoop dfs -ls'
 export SCALDING_HOME='/home/dweerapurage/lib/scalding'
-export PYTHON27_HOME='/home/dweerapurage/python27'
-export PATH=$HOME/bin:$PYTHON27_HOME/bin:$SBT_HOME/bin:$SCALA_HOME/bin:$GRADLE_HOME/bin:/usr/local/heroku/bin:$NZ_HOME/bin/:$M2_HOME/bin:$NEO4J_HOME/bin:$PATH:$ANT_HOME/bin
+export PATH=$HOME/bin:$SBT_HOME/bin:$SCALA_HOME/bin:$GRADLE_HOME/bin:/usr/local/heroku/bin:$NZ_HOME/bin/:$M2_HOME/bin:$NEO4J_HOME/bin:$PATH:$ANT_HOME/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export JAVA_HOME='/opt/java/jre1.7.0_45'

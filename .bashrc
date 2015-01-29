@@ -176,6 +176,7 @@ set -o noclobber
 
 # 2.2) Listing, directories, and motion
 alias ll="ls -alrtF --color"
+alias ls="ls -rtF --color"
 alias la="ls -A"
 alias l="ls -CF"
 alias dir='ls --color=auto --format=vertical'

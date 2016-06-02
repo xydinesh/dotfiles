@@ -8,7 +8,7 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(require 'cl)
+;;(require 'cl)
 (require 'ido)
 (require 'ffap)
 (require 'uniquify)
@@ -118,23 +118,6 @@
 (global-set-key "\M-u" 'scroll-one-line-down)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
-;; ---------------------------
-;; -- JS Mode configuration --
-;; ---------------------------
-(load "js-config.el")
-(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
-(require 'sws-mode)
-(require 'jade-mode)
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode)) 
-
-(require 'flymake-jshint)
-(add-hook 'javascript-mode-hook
-     (lambda () (flymake-mode t)))
-
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
 ;;; From this point onwards init.el contains Dinesh Weerapurage's changes
 ;;; http://ergoemacs.org/emacs/emacs_make_modern.html
 ;;; insert matching paranthesis and brackets works with emacs24
@@ -151,8 +134,8 @@
  
 ;;;; nav ;;;;
 (require 'nav)
-(nav-disable-overeager-window-splitting)
-(require 'sr-speedbar)
+;;(nav-disable-overeager-window-splitting)
+;;(require 'sr-speedbar)
 
 ;; yasnippet
 (require 'yasnippet)
@@ -179,25 +162,4 @@
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-(require 'scala-mode2)
-(require 'ensime)
-;; This step causes the ensime-mode to be started whenever
-;; scala-mode is started for a buffer. You may have to customize this step
-;; if you're not using the standard scala mode.
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-
-;;;;;;;;;; Windows ;;;;;;;;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(speedbar-default-position (quote left))
- '(speedbar-directory-button-trim-method (quote trim))
- '(tool-bar-mode nil))
-
-(add-to-list 'auto-mode-alist '("\\.cs$" . c++-mode))
-;;;;;;;;;;;;; Windows ;;;;;;;;;;;;;;;;;;;
 

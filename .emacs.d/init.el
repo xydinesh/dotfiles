@@ -199,3 +199,7 @@
 (load-theme 'misterioso)
 (require 'column-marker)
 (add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 80)))
+
+(defun flycheck-python-setup ()
+  (flycheck-mode))
+(add-hook 'python-mode-hook 'flycheck-python-setup)

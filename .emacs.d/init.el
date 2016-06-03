@@ -4,9 +4,18 @@
 ;; ---------------------
 ;; -- Global Settings --
 ;; ---------------------
-(add-to-list 'load-path "~/.emacs.d")
-(let ((default-directory "~/.emacs.d/"))
+;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(let ((default-directory "~/.emacs.d/lisp"))
   (normal-top-level-add-subdirs-to-load-path))
+
+;; basic initialization, (require) non-ELPA packages, etc.
+(require 'package)
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+(setq package-enable-at-startup nil)
+(package-initialize)
 
 ;;(require 'cl)
 (require 'ido)
@@ -125,7 +134,6 @@
 
 (show-paren-mode 1)
 (setq show-parent-style 'expression)
-;; highlight entire bracket expression
 (global-linum-mode 1)
 
 ;; Don't create backup files
@@ -163,3 +171,31 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;;http://stackoverflow.com/questions/2855378/ropemacs-usage-tutorial
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(require 'python-mode)
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
+
+;;(require 'auto-complete)
+;;(global-auto-complete-mode t)
+
+(add-hook 'python-mode-hook
+          (lambda () (define-key python-mode-map (kbd "DEL") 'py-electric-backspace)))
+(normal-erase-is-backspace-mode 0)
+(setq python-check-command "pyflakes")
+(require 'tramp)
+(autoload 'python-pep8 "python-pep8");;
+(autoload 'pep8 "python-pep8")
+
+
+(load-theme 'misterioso)
+(require 'column-marker)
+(add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 80)))

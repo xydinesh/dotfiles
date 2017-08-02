@@ -245,3 +245,22 @@
 ;;Clojur Mode:
 (add-hook 'cider-repl-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'company-mode)
+
+;; ispell
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
+(dolist (hook '(Markdown-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
+;;GO Mode.
+(with-eval-after-load 'go-mode
+   (require 'go-autocomplete))
+(setenv "GOPATH" "/Users/uweerd3/devs/gocode/")
+(add-to-list 'exec-path "/Users/uweerd3/devs/gocode/bin")
+(add-hook 'before-save-hook 'gofmt-before-save)
+(defun auto-complete-for-go ()
+  (auto-complete-mode 1))
+(add-hook 'go-mode-hook 'auto-complete-for-go)
+
+(setq ispell-program-name "/usr/local/bin/aspell")

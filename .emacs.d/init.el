@@ -16,7 +16,6 @@
                          ("melpa" . "https://melpa.org/packages/")))
 (setq package-enable-at-startup nil)
 (package-initialize)
-
 (require 'ido)
 (require 'ffap)
 (require 'uniquify)
@@ -27,7 +26,7 @@
 (require 'dired-x)
 (require 'compile)
 (ido-mode t)
-(menu-bar-mode -1)
+;(menu-bar-mode -1)
 (normal-erase-is-backspace-mode 0)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -38,6 +37,9 @@
 (setq suggest-key-bindings t)
 (setq vc-follow-symlinks t)
 
+;; Setup custom faces for Mac OSX
+(custom-set-faces
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "nil" :family "Monaco")))))
 
 ;; ------------
 ;; -- Macros --
@@ -84,7 +86,7 @@
 
 (global-set-key  [f9]  'prev-window)
 (global-set-key  [f10]  'other-window)
-(global-set-key  [f11]  'compile)
+(global-set-key  [f11]  'helm-projectile-find-file)
 (global-set-key  [f12]  'set-mark-command)
 
 (defun line-to-top ()
@@ -128,7 +130,7 @@
 ;;; From this point onwards init.el contains Dinesh Weerapurage's changes
 ;;; http://ergoemacs.org/emacs/emacs_make_modern.html
 ;;; insert matching paranthesis and brackets works with emacs24
-;;; (electric-pair-mode 1)
+(electric-pair-mode 1)
 (show-paren-mode 1)
 (global-linum-mode 1)
 ;; Don't create backup files
@@ -149,10 +151,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (paredit slime))))
+ '(column-number-mode t)
+ '(package-selected-packages
+   '(yaml-mode helm-ag helm-projectile projectile fzf helm paredit slime))
+ '(show-paren-mode t))
 
 ;; Set your lisp system and, optionally, some contribs
 (setq slime-contribs '(slime-fancy))
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
   ;; Replace "sbcl" with the path to your implementation
 (setq inferior-lisp-program "sbcl")
+
+(require 'helm-projectile)
+(helm-projectile-on)
+(setq projectile-completion-system 'helm)
+(setq projectile-switch-project-action 'helm-projectile-find-file)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
